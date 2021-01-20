@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import logo from '../../logo.svg';
+import logo from './logo.svg';
 
 const Header = styled.header`
     background-color: #282c34;
@@ -26,6 +26,6 @@ export default class AppHeader extends Component {
             <Logo src={logo} alt="React logo" />
             <AppTitle>Coin Exchange</AppTitle>
           </Header>
-        )
+        );
     }
 }
