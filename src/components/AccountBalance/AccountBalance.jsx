@@ -9,10 +9,19 @@ const Section = styled.section`
 `;
 
 export default class AccountBalance extends Component {
+   
+    handleClick = (event) => {
+        event.preventDefault();
+        this.props.handleToggleShowBalance();
+    }
+
     render() {
+        const buttonText = this.props.showBalance ? 'Hide Balance' : 'Show Balance';
+        const showAccountBalance = this.props.showBalance ? <span>Balance: ${this.props.amount} </span> : null;
         return (
-            <Section className="accountBalance-section">
-              Balance: ${this.props.amount}  
+            <Section>
+              {showAccountBalance}
+              <button onClick={this.handleClick} >{buttonText}</button>
             </Section>
         );
     }

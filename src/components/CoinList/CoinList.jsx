@@ -10,6 +10,7 @@ const Table = styled.table`
 
 export default class CoinList extends Component {
     render() {
+      let coinBalance = this.props.showBalance ? <th>Balance</th> : null;
         return (
             <Table>
             <thead>
@@ -17,15 +18,19 @@ export default class CoinList extends Component {
                 <th>Name</th>
                 <th>Ticker</th>
                 <th>Price</th>
+                {coinBalance}
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {
-                this.props.coinData.map( ({name,ticker,price}) => 
+                this.props.coinData.map( ({name,ticker,price,balance}) => 
                 <Coin key={ticker} 
                 handleRefresh={this.props.handleRefresh}
                 name={name} 
                 ticker={ticker} 
+                showBalance={this.props.showBalance}
+                balance={balance}
                 price={price} />
                 )
               }
